@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BSSM 동아리 홍보 및 모집 플랫폼</title>
+    <link rel="stylesheet" href="BCC.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 id="logo"><a href="#">BCC</a></h1>
+            <nav>
+                <a href="#" class="nav-button logged-in" data-page="club-list-page">동아리 목록</a>
+                <a href="#" class="nav-button logged-in" data-page="mypage-page">마이페이지</a>
+                <a href="#" class="nav-button logged-in" id="logout-button">로그아웃</a>
+                <a href="#" class="nav-button logged-out" data-page="login-page">로그인</a>
+                <a href="#" class="nav-button logged-out" data-page="signup-page">회원가입</a>
+            </nav>
+        </header>
+
+        <main>
+            <!-- 로그인 페이지 -->
+            <div id="login-page" class="page">
+                <div class="form-container">
+                    <h2>로그인</h2>
+                    <form id="login-form">
+                        <input type="text" id="login-id" placeholder="아이디" required>
+                        <input type="password" id="login-pw" placeholder="비밀번호" required>
+                        <button type="submit" class="button">로그인</button>
+                    </form>
+                    <p>계정이 없으신가요? <a href="#" data-page="signup-page">회원가입</a></p>
+                </div>
+            </div>
+
+            <!-- 회원가입 페이지 -->
+            <div id="signup-page" class="page">
+                <div class="form-container">
+                    <h2>회원가입</h2>
+                    <form id="signup-form">
+                        <input type="text" id="signup-id" placeholder="아이디" required>
+                        <input type="password" id="signup-pw" placeholder="비밀번호" required>
+                        <input type="text" id="signup-name" placeholder="이름" required>
+                        <input type="text" id="signup-student-id" placeholder="학번" required>
+                        <button type="submit" class="button">가입하기</button>
+                    </form>
+                    <p>이미 계정이 있으신가요? <a href="#" data-page="login-page">로그인</a></p>
+                </div>
+            </div>
+
+            <!-- 메인 페이지 (로그인 후) -->
+            <div id="main-page" class="page">
+                <div class="content-container">
+                    <h2 id="welcome-message">환영합니다!</h2>
+                    <p>관심 있는 동아리를 찾아보고 활동을 시작해보세요.</p>
+                </div>
+            </div>
+
+            <!-- 동아리 목록 페이지 -->
+            <div id="club-list-page" class="page">
+                <div class="content-container">
+                    <div class="page-header">
+                        <h2>동아리 목록</h2>
+                        <button class="button small-button" data-page="club-register-page">새 동아리 등록</button>
+                    </div>
+                    <div id="club-list-container"></div>
+                </div>
+            </div>
+            
+            <!-- 동아리 상세 페이지 -->
+            <div id="club-detail-page" class="page">
+                <div class="content-container">
+                     <a href="#" data-page="club-list-page">&larr; 목록으로 돌아가기</a>
+                     <div id="club-detail-container"></div>
+                </div>
+            </div>
+
+            <!-- 마이페이지 -->
+            <div id="mypage-page" class="page">
+                <div class="content-container">
+                    <h2>마이페이지</h2>
+                    <div class="mypage-section">
+                        <h4>내 정보</h4>
+                        <div id="mypage-info"></div>
+                    </div>
+                    <div class="mypage-section">
+                        <h4>내가 가입 신청한 동아리</h4>
+                        <div id="my-applications-list"></div>
+                    </div>
+                    <div class="mypage-section">
+                        <h4>내가 등록한 동아리 및 신청자 목록</h4>
+                        <div id="my-clubs-and-applicants"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 동아리 등록 페이지 -->
+            <div id="club-register-page" class="page">
+                <div class="form-container">
+                    <h2>새 동아리 등록</h2>
+                    <form id="club-register-form">
+                        <input type="text" id="club-name" placeholder="동아리 이름" required>
+                        <input type="text" id="club-category" placeholder="카테고리 (예: IT, 스포츠)" required>
+                        <textarea id="club-description" placeholder="동아리 소개" rows="5" required></textarea>
+                        <button type="submit" class="button">등록하기</button>
+                    </form>
+                    <p><a href="#" data-page="club-list-page">목록으로 돌아가기</a></p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="BCC.js"></script>
+</body>
+</html>
