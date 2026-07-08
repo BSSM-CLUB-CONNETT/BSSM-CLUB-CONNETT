@@ -1,4 +1,4 @@
-# BSSM-CLUB-CONNETT
+# BCC
 
 ## BSSM-Club-Connect
 ### 프로젝트 소개
