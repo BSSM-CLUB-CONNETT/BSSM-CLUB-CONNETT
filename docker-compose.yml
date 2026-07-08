@@ -1,0 +1,41 @@
+version: "3.8"
+
+services:
+  mysql:
+    build:
+      context: .
+      dockerfile: ./mysql/Dockerfile
+    container_name: mysql-server
+    restart: always
+
+    ports:
+      - "3309:3306"
+
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+    networks:
+      - bssm-network
+
+  web:
+    build:
+      context: .
+      dockerfile: ./web/Dockerfile
+    container_name: nginx-web
+    restart: always
+
+    ports:
+      - "8080:80"
+
+    depends_on:
+      - mysql
+
+    networks:
+      - bssm-network
+
+volumes:
+  mysql_data:
+
+networks:
+  bssm-network:
+    driver: bridge
